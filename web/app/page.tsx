@@ -271,7 +271,7 @@ export default function QuizPage() {
         <div className="z-card">
           <div className="z-cardInner">
             <h1 className="z-title z-title--question">
-              Katerina, your Zametka Profile is…
+              So. Your Zametka Profile is…
             </h1>
             <p className="z-sub" style={{ marginTop: 8 }}>{profileName}</p>
             <div className="z-profileCard">
@@ -315,6 +315,9 @@ export default function QuizPage() {
               This profile points to a place
             </h1>
             <p className="z-sub">Not booked. Not fixed. Just… very you.</p>
+            <p className="z-sub" style={{ marginTop: 4 }}>
+              A place that fits what you love.
+            </p>
             <div className="z-reveal">
               <p className="z-revealLabel">Route revealed</p>
               <p className="z-revealValue">{routeLabel}</p>
@@ -325,19 +328,6 @@ export default function QuizPage() {
             <div className="z-actions">
               <button type="button" onClick={goBack} className="z-btn z-btnGhost">
                 Back
-              </button>
-              <button type="button" onClick={goNext} className="z-btn z-btnPrimary">
-                Open your route
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setRouteView("other");
-                  setScreen("route");
-                }}
-                className="z-btn z-btnPaper"
-              >
-                Show the other route
               </button>
             </div>
           </div>
