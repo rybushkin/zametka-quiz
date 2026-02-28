@@ -28,8 +28,9 @@ jobs:
 
       - name: Check build output
         run: |
-          ls -la web/out/ | head -20
-          test -f web/out/index.html || (echo "ERROR: index.html not found" && exit 1)
+          ls -la web/out/ | head -25
+          test -f web/out/index.html || (echo "ERROR: index.html not found in web/out" && exit 1)
+          echo "index.html present, deploying to gh-pages..."
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
@@ -37,3 +38,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./web/out
           force_orphan: true
+          allow_empty_commit: true
