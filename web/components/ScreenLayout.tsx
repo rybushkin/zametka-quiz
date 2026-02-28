@@ -2,7 +2,8 @@
 
 import type { ReactNode } from "react";
 
-const LOGO_PATH = "/logo.png";
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const LOGO_PATH = `${BASE}/logo.png`;
 
 type Props = {
   children: ReactNode;

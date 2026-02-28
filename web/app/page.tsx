@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useCallback } from "react";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 import ScreenLayout from "@/components/ScreenLayout";
 import QuestionCard from "@/components/QuestionCard";
 import OptionButton from "@/components/OptionButton";
@@ -118,7 +120,7 @@ export default function QuizPage() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/cover.png?v=3"
+          src={`${BASE}/cover.png?v=3`}
           alt="Zametka B-Day Quiz — ten questions, no spoilers. Click to start."
           style={{
             position: "absolute",
@@ -148,7 +150,7 @@ export default function QuizPage() {
     const selected = answers[qNum as keyof Answers];
     const isQ10 = qNum === 10;
 
-    const questionImage = qNum <= 9 ? `/0${qNum}.png` : "/10.png";
+    const questionImage = qNum <= 9 ? `${BASE}/0${qNum}.png` : `${BASE}/10.png`;
 
     return (
       <>
@@ -226,7 +228,7 @@ export default function QuizPage() {
           <div style={{ width: "100%", aspectRatio: "21/9", overflow: "hidden", flexShrink: 0, background: "rgba(26,36,51,0.08)" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/09.png"
+              src={`${BASE}/09.png`}
               alt=""
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
               loading="eager"
