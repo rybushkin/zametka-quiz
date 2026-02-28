@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 
-const LOGO_PATH = "/img/logo.png";
+const LOGO_PATH = "/logo.png";
 
 type Props = {
   children: ReactNode;
