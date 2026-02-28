@@ -357,6 +357,7 @@ export default function QuizPage() {
         <div className="z-card">
           <div className="z-cardInner">
             <h1 className="z-title z-title--question">{route.title}</h1>
+            <p className="z-sub mt-2 mb-4 opacity-90">What you love</p>
             <div className="z-profileCard">
               <p className="z-revealLabel">Stay</p>
               <p className="z-sub">{route.stay}</p>
