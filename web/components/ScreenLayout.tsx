@@ -1,9 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const LOGO_PATH = `${BASE}/logo.png`;
+import { getBasePath } from "@/lib/basePath";
 
 type Props = {
   children: ReactNode;
@@ -44,7 +42,7 @@ export default function ScreenLayout({ children, footer, noScroll = false, fullP
         <div className="z-topbar" style={{ justifyContent: "center", alignItems: "center", flexShrink: 0 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={LOGO_PATH}
+            src={`${getBasePath()}/logo.png`}
             alt="Zametka"
             style={{ height: 56, width: "auto", objectFit: "contain", flexShrink: 0 }}
             onError={(e) => { e.currentTarget.style.display = "none"; }}
