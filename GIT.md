@@ -17,9 +17,10 @@
 git remote add origin https://github.com/<ТВОЙ_ЮЗЕР>/<ИМЯ_РЕПО>.git
 git branch -M main
 git push -u origin main
+git push origin v0.1.0
 ```
 
-Если репо создан с другим именем ветки (например `master`), замени `main` на неё.
+Если ветка уже `master`, можно пушить так: `git push -u origin master` и затем `git push origin v0.1.0`. Тег `v0.1.0` уже создан локально — после пуша его будет видно на GitHub.
 
 ### 3. Релизы (Releases)
 
