@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Keep one-screen layout (no page scroll) */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}

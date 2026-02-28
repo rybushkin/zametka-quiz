@@ -1,0 +1,5 @@
+/* Apply next/font variables to theme (load after zametka-katerina.css) */
+body {
+  --font-head: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}

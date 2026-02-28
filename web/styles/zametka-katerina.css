@@ -1,0 +1,482 @@
+/* =========================================================
+   Zametka Quiz — Styles (for Katerina)
+   Drop-in file for Cursor project.
+   Works best as: app/globals.css (Next.js) or styles/zametka.css
+   ========================================================= */
+
+/* Optional font setup:
+   Use next/font in code for Fraunces + Inter.
+   This CSS assumes those fonts are available; falls back gracefully.
+*/
+
+:root{
+  /* Palette */
+  --ink-black: #0B0B0E;
+  --paper-cream: #F3EBDD;
+  --brick-red: #D94A3A;
+  --navy-ink: #1A2433;
+  --dust-blue: #7A90A8;
+
+  /* Neutrals */
+  --paper-cream-2: #EFE4D3;
+  --line-weak: rgba(26, 36, 51, 0.14);
+  --line-med: rgba(26, 36, 51, 0.24);
+  --shadow: 0 18px 60px rgba(0,0,0,0.45);
+
+  /* Type */
+  --font-head: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  /* Radius / spacing */
+  --r-xl: 24px;
+  --r-lg: 16px;
+  --r-md: 14px;
+
+  --gap-1: 8px;
+  --gap-2: 16px;
+  --gap-3: 24px;
+  --gap-4: 32px;
+  --gap-5: 48px;
+
+  /* Motion */
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --dur-1: 160ms;
+  --dur-2: 260ms;
+}
+
+/* ===== Base ===== */
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  background: var(--ink-black);
+  color: var(--paper-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a{ color: inherit; text-decoration: none; }
+button, input{ font-family: inherit; }
+
+/* ===== Layout ===== */
+.z-root{
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(18px, 3vw, 44px);
+}
+
+.z-shell{
+  width: 100%;
+  max-width: 900px;
+}
+
+.z-topbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-2);
+  margin-bottom: var(--gap-3);
+}
+
+.z-progress{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(243,235,221,0.85);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.z-progressLine{
+  height: 1px;
+  flex: 1;
+  background: rgba(243,235,221,0.12);
+}
+
+.z-stage{
+  position: relative;
+}
+
+/* ===== Card (paper) ===== */
+.z-card{
+  background: var(--paper-cream);
+  color: var(--navy-ink);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.22);
+  overflow: hidden;
+}
+
+.z-cardInner{
+  padding: clamp(22px, 2.8vw, 38px);
+}
+
+.z-cardHeader{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-3);
+  margin-bottom: var(--gap-3);
+}
+
+/* ===== Typography ===== */
+.z-title{
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+}
+
+.z-title--cover{
+  font-size: clamp(52px, 7vw, 78px);
+}
+
+.z-title--question{
+  font-size: clamp(26px, 3vw, 34px);
+}
+
+.z-sub{
+  margin: 10px 0 0 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: rgba(26,36,51,0.78);
+  max-width: 60ch;
+}
+
+.z-helper{
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(26,36,51,0.68);
+}
+
+.z-toLine{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(243,235,221,0.82);
+}
+
+.z-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(243,235,221,0.08);
+  border: 1px solid rgba(243,235,221,0.14);
+  color: rgba(243,235,221,0.9);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ===== Buttons ===== */
+.z-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-2);
+  margin-top: var(--gap-3);
+}
+
+.z-btn{
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1;
+  transition: transform var(--dur-1) var(--ease),
+              filter var(--dur-1) var(--ease),
+              background var(--dur-1) var(--ease),
+              border-color var(--dur-1) var(--ease),
+              opacity var(--dur-1) var(--ease);
+  user-select: none;
+}
+
+.z-btn:active{ transform: translateY(1px); }
+
+.z-btnPrimary{
+  background: var(--brick-red);
+  color: var(--paper-cream);
+  box-shadow: 0 10px 24px rgba(217,74,58,0.28);
+}
+
+.z-btnPrimary:hover{ filter: brightness(0.97); }
+.z-btnPrimary:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.z-btnGhost{
+  background: transparent;
+  color: rgba(243,235,221,0.9);
+  border: 1px solid rgba(243,235,221,0.18);
+}
+
+.z-btnGhost:hover{
+  border-color: rgba(243,235,221,0.28);
+  transform: translateY(-1px);
+}
+
+.z-btnPaper{
+  background: rgba(255,255,255,0.35);
+  color: var(--navy-ink);
+  border: 1px solid var(--line-weak);
+}
+
+.z-btnPaper:hover{
+  border-color: var(--line-med);
+  transform: translateY(-1px);
+}
+
+/* ===== Options ===== */
+.z-options{
+  display: grid;
+  gap: 12px;
+  margin-top: var(--gap-3);
+}
+
+.z-option{
+  text-align: left;
+  width: 100%;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid var(--line-weak);
+  border-radius: 18px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: transform var(--dur-1) var(--ease),
+              border-color var(--dur-1) var(--ease),
+              background var(--dur-1) var(--ease);
+  position: relative;
+}
+
+.z-option:hover{
+  transform: translateY(-1px);
+  border-color: var(--line-med);
+  background: rgba(255,255,255,0.44);
+}
+
+.z-optionTitle{
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--navy-ink);
+  margin: 0;
+}
+
+.z-optionCap{
+  margin: 6px 0 0 0;
+  font-size: 13px;
+  line-height: 1.35;
+  color: rgba(26,36,51,0.66);
+}
+
+.z-optionSelected{
+  border-color: rgba(217,74,58,0.72);
+  box-shadow: 0 10px 22px rgba(217,74,58,0.16);
+}
+
+.z-optionSelected::after{
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: var(--brick-red);
+  box-shadow: 0 0 0 3px rgba(217,74,58,0.18);
+}
+
+/* ===== Input (Sealed note) ===== */
+.z-noteWrap{
+  margin-top: var(--gap-3);
+  position: relative;
+}
+
+.z-noteInput{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid var(--line-weak);
+  background: rgba(255,255,255,0.42);
+  color: var(--navy-ink);
+  font-size: 16px;
+  outline: none;
+  transition: border-color var(--dur-1) var(--ease),
+              box-shadow var(--dur-1) var(--ease);
+}
+
+.z-noteInput:focus{
+  border-color: rgba(217,74,58,0.55);
+  box-shadow: 0 0 0 4px rgba(217,74,58,0.14);
+}
+
+.z-seal{
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(217,74,58,0.12);
+  border: 1px solid rgba(217,74,58,0.28);
+  color: rgba(217,74,58,0.9);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ===== Cover styling ===== */
+.z-cover{
+  text-align: left;
+  padding: clamp(26px, 3.3vw, 46px);
+  border-radius: var(--r-xl);
+  border: 1px solid rgba(243,235,221,0.12);
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(217,74,58,0.10), transparent 55%),
+              radial-gradient(900px 500px at 90% 40%, rgba(122,144,168,0.12), transparent 60%),
+              rgba(243,235,221,0.04);
+}
+
+.z-coverMeta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-2);
+  margin-bottom: var(--gap-4);
+}
+
+.z-coverBody{
+  color: rgba(243,235,221,0.86);
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 54ch;
+  margin-top: var(--gap-2);
+}
+
+/* ===== Result cards ===== */
+.z-profileCard{
+  border-radius: 22px;
+  border: 1px solid var(--line-weak);
+  background: rgba(255,255,255,0.46);
+  padding: 18px 18px;
+  margin-top: var(--gap-3);
+}
+
+.z-bullets{
+  margin: 12px 0 0 0;
+  padding-left: 18px;
+  color: rgba(26,36,51,0.78);
+  line-height: 1.5;
+}
+
+.z-quote{
+  margin-top: 14px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px dashed rgba(26,36,51,0.26);
+  background: rgba(255,255,255,0.36);
+  font-size: 14px;
+  color: rgba(26,36,51,0.8);
+}
+
+/* ===== Reveal panel ===== */
+.z-reveal{
+  margin-top: var(--gap-3);
+  padding: 18px 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(217,74,58,0.28);
+  background: linear-gradient(180deg, rgba(217,74,58,0.10), rgba(255,255,255,0.38));
+}
+
+.z-revealLabel{
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,36,51,0.72);
+}
+
+.z-revealValue{
+  margin-top: 10px;
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.4vw, 40px);
+  letter-spacing: -0.02em;
+  color: var(--navy-ink);
+}
+
+/* ===== Toast ===== */
+.z-toast{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: var(--paper-cream);
+  color: var(--navy-ink);
+  border-radius: 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(217,74,58,0.22);
+  box-shadow: 0 16px 44px rgba(0,0,0,0.35);
+  max-width: min(360px, calc(100vw - 36px));
+  transform: translateY(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-2) var(--ease),
+              transform var(--dur-2) var(--ease);
+}
+
+.z-toast--show{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.z-toastTitle{
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(26,36,51,0.65);
+  margin: 0 0 6px 0;
+}
+
+.z-toastText{
+  margin: 0;
+  font-size: 14px;
+  color: rgba(26,36,51,0.84);
+  line-height: 1.35;
+}
+
+/* ===== Screen transitions ===== */
+.z-fadeIn{
+  animation: zFadeIn var(--dur-2) var(--ease) both;
+}
+
+@keyframes zFadeIn{
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Accessibility ===== */
+:focus-visible{
+  outline: 3px solid rgba(122,144,168,0.55);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 520px){
+  .z-actions{
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .z-btn{ width: 100%; justify-content: center; }
+  .z-cardHeader{ flex-direction: column; }
+  .z-progressLine{ display:none; }
+}
