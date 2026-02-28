@@ -5,7 +5,7 @@ on:
     branches: [master, main]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -25,6 +25,11 @@ jobs:
         run: |
           npm ci
           npm run build
+
+      - name: Check build output
+        run: |
+          ls -la web/out/ | head -20
+          test -f web/out/index.html || (echo "ERROR: index.html not found" && exit 1)
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
