@@ -26,28 +26,6 @@ jobs:
           npm ci
           npm run build
 
-      - name: Fix paths for GitHub Pages subpath
-        run: |
-          BASE="/${{ github.event.repository.name }}"
-          find web/out -type f \( -name "*.html" -o -name "*.js" -o -name "*.json" \) -print0 | while IFS= read -r -d '' f; do
-            sed -i \
-              -e "s|\"/_next/|\"${BASE}/_next/|g" \
-              -e "s|\"/cover.|\"${BASE}/cover.|g" \
-              -e "s|\"/favicon.|\"${BASE}/favicon.|g" \
-              -e "s|\"/logo.|\"${BASE}/logo.|g" \
-              -e "s|\"/01.|\"${BASE}/01.|g" \
-              -e "s|\"/02.|\"${BASE}/02.|g" \
-              -e "s|\"/03.|\"${BASE}/03.|g" \
-              -e "s|\"/04.|\"${BASE}/04.|g" \
-              -e "s|\"/05.|\"${BASE}/05.|g" \
-              -e "s|\"/06.|\"${BASE}/06.|g" \
-              -e "s|\"/07.|\"${BASE}/07.|g" \
-              -e "s|\"/08.|\"${BASE}/08.|g" \
-              -e "s|\"/09.|\"${BASE}/09.|g" \
-              -e "s|\"/10.|\"${BASE}/10.|g" \
-              "$f"
-          done
-
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
