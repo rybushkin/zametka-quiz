@@ -313,6 +313,9 @@ export default function QuizPage() {
       <ScreenLayout fullPageScroll>
         <div className="z-card">
           <div className="z-cardInner">
+            <p className="z-sub" style={{ marginBottom: 8, fontSize: "1.1rem" }}>
+              Happy Birthday ❤️
+            </p>
             <h1 className="z-title z-title--question">
               This profile points to a place
             </h1>
