@@ -7,11 +7,11 @@
 1. Репозиторий → **Settings** → **Pages**.
 2. **Build and deployment** → **Source**: выбери **GitHub Actions**.
 3. Сохрани. При следующем пуше в `master` workflow «Deploy to GitHub Pages» соберёт проект и задеплоит.
-4. Сайт откроется по адресу:
+4. Сайт открывается по **custom domain** (после настройки DNS):
 
-**https://rybushkin.github.io/zametka-quiz/**
+**https://zametka.pics** и **https://www.zametka.pics**
 
-(Со слэшем в конце. Для своего домена укажи Custom domain в том же разделе.)
+(Сборка без basePath — только для домена. Старая ссылка rybushkin.github.io/zametka-quiz/ больше не работает.)
 
 ## Если видишь «File not found» (404)
 

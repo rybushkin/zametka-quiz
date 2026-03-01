@@ -1,12 +1,9 @@
 import type { NextConfig } from "next";
 
-const basePath = "/zametka-quiz";
-
+// No basePath: site is served at custom domain root (zametka.pics).
+// rybushkin.github.io/zametka-quiz/ will no longer work; use zametka.pics.
 const nextConfig: NextConfig = {
   output: "export",
-  basePath,
-  assetPrefix: basePath,
-  env: { NEXT_PUBLIC_BASE_PATH: basePath },
 };
 
 export default nextConfig;
